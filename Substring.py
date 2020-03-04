@@ -23,7 +23,7 @@ while(low<=high):
 	x=0
 	for i in range(mid):
 		f[ord(s[i])-ord('a')] += 1
-	for j in range(n-mid):
+	for j in range(1,(n-mid+1)):
 		if(max_length(f,maxx)):
 			x=1
 			break
@@ -39,4 +39,4 @@ while(low<=high):
 	else:
 		low=mid+1
 
-print(maxx)
+print(ans)
