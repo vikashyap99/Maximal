@@ -1,6 +1,6 @@
 # Maximal
 
-"""
+"
 def max_length(li,maxx):
 	xx=0
 	for i in range(26):
@@ -43,4 +43,4 @@ while(low<=high):
 		low=mid+1
 
 print(maxx)
-"""
+"
