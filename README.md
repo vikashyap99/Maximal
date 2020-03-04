@@ -1,41 +1,46 @@
 # Maximal
 
-N = 256
- 
-def mdc(str, n):
-    
-    count = [0] * N
-      
-    for i in range(n): 
-        count[ord(str[i])] += 1
-      
-    max_distinct = 0
-    for i in range(N): 
-        if (count[i] != 0): 
-            max_distinct += 1    
-      
-    return max_distinct 
-  
-def ssmd(str): 
-  
-    n = len(str)     
-  
-    max_distinct = mdc(str, n) 
-    minl = n
-    for i in range(n): 
-        for j in range(n): 
-            subs = str[i:j] 
-            subs_lenght = len(subs) 
-            sub_distinct_char = mdc(subs,subs_lenght) 
-             
-            if (subs_lenght < minl and max_distinct == sub_distinct_char): 
-                minl = subs_lenght 
-  
-    return minl 
+"""
+def max_length(li,maxx):
+	xx=0
+	for i in range(26):
+		if(li[i]):
+			xx+=1
+	return (xx==maxx)
 
-if __name__ == "__main__": 
-      
-    s = input()
-      
-    l = ssmd(s); 
-    print( "The length of the smallest substring : ", l)
+
+s = input() 
+n = len(s)
+ls = [0]*40
+for i in range(n):
+	ls[ord(s[i])-ord('a')]=1
+maxx=0
+ans = 1
+for i in range(26):
+	maxx += ls[i]
+low=1
+high=n
+while(low<=high):
+	mid=(low+high)//2
+	f=[0]*30
+	x=0
+	for i in range(mid):
+		f[ord(s[i])-ord('a')] += 1
+	for j in range(n-mid):
+		if(max_length(f,maxx)):
+			x=1
+			break
+
+		f[ord(s[j-1])-ord('a')]-=1
+		f[ord(s[j+mid-1])-ord('a')]+=1
+
+	if(max_length(f,maxx)):
+		x=1
+	if(x):
+		ans=mid
+		high=mid-1
+	else:
+		low=mid+1
+
+print(maxx)
+"""
